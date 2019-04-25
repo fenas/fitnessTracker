@@ -1,0 +1,13 @@
+<div>
+  <mat-tab-group *ngIf="!onGoingTraining">
+    <mat-tab label="New Excercise">
+      <app-newtraining>
+      </app-newtraining>
+    </mat-tab>
+    <mat-tab label="Past Excercise">
+      <app-pasttraining></app-pasttraining>
+    </mat-tab>
+  </mat-tab-group>
+
+  <app-currenttraining *ngIf="onGoingTraining" (trainingStop)="onGoingTraining=false"></app-currenttraining>
+</div>
