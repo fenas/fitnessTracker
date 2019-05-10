@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material';
 export class CurrenttrainingComponent implements OnInit {
   @Output() trainingStop = new EventEmitter();
   progress = 0;
-  timer: number;
+  timer: any;
   step: number;
 
   constructor(private dialog: MatDialog, private trainingservice: TrainingService) { }

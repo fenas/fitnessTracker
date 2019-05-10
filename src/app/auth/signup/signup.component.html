@@ -1,9 +1,22 @@
 <div class="signup-container">
-
-  <form fxLayout="column" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="onSubmit(f)" fxLayoutGap="10px">
-
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+    fxLayoutGap="10px"
+  >
     <mat-form-field>
-      <input type="email" matInput placeholder="Your Email" required email ngModel name="email" #emailInput="ngModel">
+      <input
+        type="email"
+        matInput
+        placeholder="Your Email"
+        required
+        email
+        ngModel
+        name="email"
+        #emailInput="ngModel"
+      />
 
       <mat-error *ngIf="emailInput.hasError('required')">
         Email is <strong>required</strong>
@@ -12,25 +25,48 @@
       <mat-error *ngIf="!emailInput.hasError('required')">
         Email is <strong>Invalid</strong>
       </mat-error>
-
     </mat-form-field>
 
     <mat-form-field hintLabel="Should be atleast 6 characters long">
-      <input type="password" matInput placeholder="Your Password" required minlength="6" ngModel name="password"
-        #pwIn="ngModel">
-      <mat-hint align="end"><strong> {{ pwIn.value?.length }}/ 6</strong> </mat-hint>
+      <input
+        type="password"
+        matInput
+        placeholder="Your Password"
+        required
+        minlength="6"
+        ngModel
+        name="password"
+        #pwIn="ngModel"
+      />
+      <mat-hint align="end"
+        ><strong> {{ pwIn.value?.length }}/ 6</strong>
+      </mat-hint>
     </mat-form-field>
 
     <mat-form-field class="datepicker">
-      <input matInput [matDatepicker]="picker" placeholder="Your birthdate" [max]="maxDate">
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Your birthdate"
+        [max]="maxDate"
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-checkbox color='primary' required ngModel name="Agree">Agree to terms And Conditions</mat-checkbox>
+    <mat-checkbox color="primary" required ngModel name="Agree"
+      >Agree to terms And Conditions</mat-checkbox
+    >
 
-    <button *ngIf="!ShowSpinner" type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+    <button
+      *ngIf="!ShowSpinner"
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="f.invalid"
+    >
+      Signup
+    </button>
     <mat-spinner *ngIf="ShowSpinner"></mat-spinner>
-
   </form>
 </div>

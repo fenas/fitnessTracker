@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Subscription } from 'rxjs';
 import { TrainingService } from './../training.service';
 import { Exercise } from './../execcise.model';
@@ -40,6 +41,14 @@ export class PasttrainingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.ExChangedSubscription.unsubscribe();
+  }
+
+  convertToDate(timestamp: any): Date {
+    console.log(timestamp);
+    const newdate = new Date(parseFloat(timestamp.seconds) * 1000);
+    console.log(newdate);
+    return newdate;
+
   }
 
 }
